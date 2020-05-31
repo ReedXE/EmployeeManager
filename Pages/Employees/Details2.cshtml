@@ -1,0 +1,67 @@
+@page "{id:int}"
+@model EmployeeManager.Pages.Employees.Details2Model
+
+@{
+    ViewData["Title"] = "Details2";
+}
+
+<h2>Details2</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Surname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Salary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Salary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Status)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>

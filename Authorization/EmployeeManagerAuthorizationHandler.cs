@@ -1,0 +1,41 @@
+﻿using System.Threading.Tasks;
+using EmployeeManager.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Identity;
+
+namespace EmployeeManager.Authorization
+{
+    public class EmployeeManagerAuthorizationHandler :
+        AuthorizationHandler<OperationAuthorizationRequirement, Employee>
+    {
+        protected override Task
+            HandleRequirementAsync(AuthorizationHandlerContext context,
+                                   OperationAuthorizationRequirement requirement,
+                                   Employee resource)
+        {
+            if (context.User == null || resource == null)
+            {
+                return Task.CompletedTask;
+            }
+
+            // If not asking for approval/reject, return.
+            if (requirement.Name != Constants.ApproveOperationName &&
+                requirement.Name != Constants.ReadOperationName &&
+                requirement.Name != Constants.UpdateOperationName &&
+                requirement.Name != Constants.DeleteOperationName &&
+                requirement.Name != Constants.RejectOperationName)
+            {
+                return Task.CompletedTask;
+            }
+
+            // Managers can approve or reject.
+            if (context.User.IsInRole(Constants.EmployeeManagersRole))
+            {
+                context.Succeed(requirement);
+            }
+
+            return Task.CompletedTask;
+        }
+    }
+}

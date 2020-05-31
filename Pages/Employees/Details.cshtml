@@ -1,0 +1,97 @@
+@page "{id:int}"
+@model EmployeeManager.Pages.Employees.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Surname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.StartDate)
+        </dd>
+        <!-- <snippet> -->
+        @*Precedng markup omitted for brevity.*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Salary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Salary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Status)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.Employee.Status != JobStatus.Employed)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+     User, Model.Employee, EmployeeOperations.Approve)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Employee.Id" />
+            <input type="hidden" name="status" value="@JobStatus.Employed" />
+            <button type="submit" class="btn btn-xs btn-success">Employed</button>
+        </form>
+    }
+}
+
+@if (Model.Employee.Status != JobStatus.Disemployed)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+     User, Model.Employee, EmployeeOperations.Reject)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Employee.Id" />
+            <input type="hidden" name="status" value="@JobStatus.Disemployed" />
+            <button type="submit" class="btn btn-xs btn-danger">Disemployed</button>
+        </form>
+    }
+}
+
+<div>
+    @if ((await AuthorizationService.AuthorizeAsync(
+         User, Model.Employee,
+         EmployeeOperations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Employee.Id">Edit</a>
+        <text> | </text>
+    }
+    <a asp-page="./Index">Back to List</a>
+</div>
+<!-- </snippet> -->
