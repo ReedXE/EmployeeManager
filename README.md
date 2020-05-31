@@ -39,7 +39,10 @@ AspNetUserRoles
 Poprzez podanie Id roli oraz Id użytkownika.
 
 # Role
-Użytkownicy, którzy rejestrują się na stronie zostają dodanie do domyślnej grupy, która może wyświetlić tabele z pracownikami.
+```
+Users
+```
+Użytkownicy, którzy rejestrują się na stronie, mogą tylko wyświetlać tabele z pracownikami.
 ```
 EmployeeAdministrators
 ```
