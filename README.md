@@ -15,7 +15,7 @@ Add-Migration nazwa_migracji -Context EmployeeContext
 ```
 oraz
 ```
-Update-Database
+Update-Database -Context EmployeeContext
 ```
 Po wykonaniu obu tych komend powinna się utworzyć nowa baza danych.
 Ścieżka do bazy znajduje się w pliku appsettings.json
