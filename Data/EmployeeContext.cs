@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EmployeeManager.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace EmployeeManager.Data
 {
@@ -16,5 +17,9 @@ namespace EmployeeManager.Data
         }
 
         public DbSet<EmployeeManager.Models.Employee> Employee { get; set; }
+
+
+
     }
+
 }

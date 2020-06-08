@@ -39,7 +39,9 @@ namespace EmployeeManager
                 options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<EmployeeContext>();
-            
+
+
+
 
             services.AddRazorPages();
 
