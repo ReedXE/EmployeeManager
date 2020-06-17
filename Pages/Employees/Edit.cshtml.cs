@@ -52,7 +52,7 @@ namespace EmployeeManager.Pages.Employees
                 return Page();
             }
 
-            // Fetch Employee from DB to get OwnerID.
+
             var employees = await Context
                 .Employee.AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -76,10 +76,7 @@ namespace EmployeeManager.Pages.Employees
 
             if (Employee.Status == JobStatus.Employed)
             {
-                // If the employees is updated after approval, 
-                // and the user cannot approve,
-                // set the status back to submitted so the update can be
-                // checked and approved.
+
                 var canApprove = await AuthorizationService.AuthorizeAsync(User,
                                         employees,
                                         EmployeeOperations.Approve);

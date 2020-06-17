@@ -19,17 +19,16 @@ namespace EmployeeManager.Authorization
                 return Task.CompletedTask;
             }
 
-            // If not asking for approval/reject, return.
+
             if (requirement.Name != Constants.ApproveOperationName &&
                 requirement.Name != Constants.ReadOperationName &&
                 requirement.Name != Constants.UpdateOperationName &&
-                requirement.Name != Constants.DeleteOperationName &&
+              
                 requirement.Name != Constants.RejectOperationName)
             {
                 return Task.CompletedTask;
             }
 
-            // Managers can approve or reject.
             if (context.User.IsInRole(Constants.EmployeeManagersRole))
             {
                 context.Succeed(requirement);

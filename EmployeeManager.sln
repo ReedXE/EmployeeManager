@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager", "EmployeeManager.csproj", "{A9CE81CC-4DED-455B-A90A-EA74380D99AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emgui", "..\emgui\emgui\emgui.csproj", "{8685D94C-C7D4-406E-843F-31024DB7C4D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9CE81CC-4DED-455B-A90A-EA74380D99AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9CE81CC-4DED-455B-A90A-EA74380D99AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9CE81CC-4DED-455B-A90A-EA74380D99AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8685D94C-C7D4-406E-843F-31024DB7C4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8685D94C-C7D4-406E-843F-31024DB7C4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8685D94C-C7D4-406E-843F-31024DB7C4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8685D94C-C7D4-406E-843F-31024DB7C4D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

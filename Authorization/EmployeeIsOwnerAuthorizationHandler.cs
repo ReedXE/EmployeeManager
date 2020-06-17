@@ -27,7 +27,6 @@ namespace EmployeeManager.Authorization
                 return Task.CompletedTask;
             }
 
-            // If not asking for CRUD permission, return.
 
             if (requirement.Name == Constants.ReadOperationName)
             {

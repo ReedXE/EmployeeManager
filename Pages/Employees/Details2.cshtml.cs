@@ -43,7 +43,6 @@ namespace EmployeeManager.Pages.Employees
             var currentUserId = UserManager.GetUserId(User);
 
             if (!isAuthorized
-                && currentUserId != Employee.OwnerID
                 && Employee.Status != JobStatus.Employed)
             {
                 return Forbid();

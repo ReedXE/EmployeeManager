@@ -18,7 +18,7 @@ namespace EmployeeManager.Authorization
                 return Task.CompletedTask;
             }
 
-            // Administrators can do anything.
+
             if (context.User.IsInRole(Constants.EmployeeAdministratorsRole))
             {
                 context.Succeed(requirement);

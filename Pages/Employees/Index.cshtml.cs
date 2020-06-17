@@ -29,7 +29,7 @@ namespace EmployeeManager.Pages.Employees
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
-        // Requires using Microsoft.AspNetCore.Mvc.Rendering;
+
         public SelectList Position { get; set; }
         [BindProperty(SupportsGet = true)]
         public string EmployeePos { get; set; }

@@ -22,14 +22,14 @@ namespace EmployeeManager.Pages.Administration
 
         public List<IdentityUser> Users { get; private set; }
 
-        public List<IdentityUserRole<string>> UsersRoles { get; set; }  // get my roles or context of user
+        public List<IdentityUserRole<string>> UsersRoles { get; set; } 
 
         public List<IdentityRole> AllRoles { get; private set; }
 
         public void OnGet()
         {
             Users = _context.Users.ToList();
-            UsersRoles = _context.UserRoles.ToList(); // get my roles or context 
+            UsersRoles = _context.UserRoles.ToList(); 
             AllRoles = _context.Roles.ToList();
         }
 

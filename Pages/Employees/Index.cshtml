@@ -8,7 +8,8 @@
 <h2>List of employees</h2>
 
 <p>
-    <a asp-page="Create">Add new employee!</a>
+
+<a asp-page="Create"><input type="button" class="btn btn-success" value="Add new employee!" /> </a>
 </p>
 
 <form>
@@ -30,25 +31,24 @@
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Surname)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Employee[0].Address)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].City)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Position)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Employee[0].StartDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Salary)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Status)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -61,43 +61,49 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.City)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Salary)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
                 @if ((await AuthorizationService.AuthorizeAsync(
-                User, item,
-                EmployeeOperations.Update)).Succeeded)
+               User, item,
+               EmployeeOperations.Update)).Succeeded)
                 {
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
-                    <text> | </text>
-                }
+                
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><input type="button" class="btn btn-success" value="Edit"/></a>
+                    <text>   </text>                }
 
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                  User, item,
+                  EmployeeOperations.Read)).Succeeded)
+                    {
+                <a asp-page="./Details" asp-route-id="@item.Id"><input type="button" class="btn btn-info" value="Details"/></a>
+                                        <text>   </text>}
 
-                @if ((await AuthorizationService.AuthorizeAsync(
-                User, item,
-                EmployeeOperations.Delete)).Succeeded)
-                {
-                    <text> | </text>
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                }
-            </td>
+
+
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                  User, item,
+                  EmployeeOperations.Delete)).Succeeded)
+                    {
+                <text>   </text>
+             <a asp-page="./Delete" asp-route-id="@item.Id"><input type="button" class="btn btn-danger" value="Delete"/></a>}
+</td>
         </tr>
         }
     </tbody>

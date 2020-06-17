@@ -25,11 +25,11 @@ namespace EmployeeManager.Pages.Employees
         {
             Employee = new Employee
             {
-                Name = "Name",
-                Surname = "Surname",
-                Address = "Address",
-                Position = "Position in company",
-                City = "City",
+                Name = "",
+                Surname = "",
+                Address = "",
+                Position = "",
+                City = "",
 
             };
             return Page();
@@ -48,7 +48,7 @@ namespace EmployeeManager.Pages.Employees
 
             Employee.OwnerID = UserManager.GetUserId(User);
 
-            // requires using EmployeeManager.Authorization;
+
             var isAuthorized = await AuthorizationService.AuthorizeAsync(
                                                         User, Employee,
                                                         EmployeeOperations.Create);
